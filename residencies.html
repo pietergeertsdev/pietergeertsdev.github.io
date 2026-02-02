@@ -147,7 +147,6 @@
         // Initialize on page load
         window.onload = function() {
             populateTable(residenciesData);
-            updateStats(residenciesData);
         };
 
         function populateTable(data) {
@@ -186,19 +185,6 @@
                 
                 tbody.appendChild(tr);
             });
-        }
-
-        function updateStats(data) {
-            const withDistances = data.filter(r => r.da !== null);  // da = distance average
-            const close = withDistances.filter(r => r.da < 15).length;
-            const medium = withDistances.filter(r => r.da < 25).length;
-            const avgDist = withDistances.length > 0 
-                ? (withDistances.reduce((sum, r) => sum + r.da, 0) / withDistances.length).toFixed(2)
-                : '-';
-
-            document.getElementById('closeCount').textContent = close;
-            document.getElementById('mediumCount').textContent = medium;
-            document.getElementById('avgDistance').textContent = avgDist + ' km';
         }
 
         function sortTable(columnIndex) {
