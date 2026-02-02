@@ -189,7 +189,6 @@
         }
 
         function updateStats(data) {
-            const total = data.length;
             const withDistances = data.filter(r => r.da !== null);  // da = distance average
             const close = withDistances.filter(r => r.da < 15).length;
             const medium = withDistances.filter(r => r.da < 25).length;
@@ -197,7 +196,6 @@
                 ? (withDistances.reduce((sum, r) => sum + r.da, 0) / withDistances.length).toFixed(2)
                 : '-';
 
-            document.getElementById('totalCount').textContent = total;
             document.getElementById('closeCount').textContent = close;
             document.getElementById('mediumCount').textContent = medium;
             document.getElementById('avgDistance').textContent = avgDist + ' km';
