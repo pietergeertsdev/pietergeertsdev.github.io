@@ -162,28 +162,57 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===================================
-// Contact Form Handling
+// Contact Form Handling with Web3Forms
 // ===================================
-const contactForm = document.querySelector('.contact-form');
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('form-status');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Here you would typically send the data to a server
-    // For now, we'll just show a success message
-    alert('Thank you for your interest! We will contact you soon.\n\nNote: This is a demo form. In production, this would send your message to the property owners.');
-    
-    // Reset form
-    contactForm.reset();
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Verzenden...';
+        formStatus.textContent = '';
+        formStatus.className = 'form-status';
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        
+        try {
+            // Send to Web3Forms
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                // Success message
+                formStatus.textContent = '✓ Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.';
+                formStatus.className = 'form-status success';
+                contactForm.reset();
+            } else {
+                // Error message
+                formStatus.textContent = '✗ Er is iets misgegaan. Probeer het opnieuw of stuur een email naar pietiebeerke@gmail.com';
+                formStatus.className = 'form-status error';
+            }
+        } catch (error) {
+            // Network error
+            formStatus.textContent = '✗ Netwerkfout. Controleer uw internetverbinding en probeer het opnieuw.';
+            formStatus.className = 'form-status error';
+        }
+        
+        // Re-enable button
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+    });
+}
 
 // ===================================
 // Scroll Animations (Fade in on scroll)
@@ -283,13 +312,14 @@ let autoScrollInterval = null;
 function initializeEditModeButtons() {
     console.log('Initializing edit mode buttons...');
     
-    // Create edit mode toggle button
+    // Create edit mode toggle button (hidden)
     editButton = document.createElement('button');
     editButton.className = 'edit-mode-toggle';
     editButton.innerHTML = '✏️';
     editButton.title = 'Bewerk galerij';
+    editButton.style.display = 'none'; // Hidden - gallery order is finalized
     document.body.appendChild(editButton);
-    console.log('Edit button created');
+    console.log('Edit button created (hidden)');
 
     // Create export config button
     exportButton = document.createElement('button');

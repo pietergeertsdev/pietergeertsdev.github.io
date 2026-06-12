@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-06-04T15:36:44.041Z",
+  "lastUpdated": "2026-06-12T14:54:12.182Z",
   "galleryOrder": [
     {
       "index": 0,
@@ -220,7 +220,7 @@
     {
       "index": 43,
       "dataIndex": "34",
-      "hidden": false
+      "hidden": true
     },
     {
       "index": 44,

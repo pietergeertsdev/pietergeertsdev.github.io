@@ -271,6 +271,35 @@ body {
     letter-spacing: 1px;
 }
 
+.hero-price {
+    margin-top: 30px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.price-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--earth-tone);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.price-amount {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--forest-green);
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+}
+
 .cta-button {
     display: inline-block;
     padding: 18px 45px;
@@ -671,10 +700,20 @@ body {
 }
 
 .location-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.location-maps {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    gap: 30px;
+}
+
+.location-map-item {
+    display: flex;
+    flex-direction: column;
 }
 
 .location-text h3 {
@@ -711,10 +750,76 @@ body {
 }
 
 .location-image {
-    background: var(--sage-green);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px var(--shadow-dark);
+    background: transparent;
+}
+
+.location-image iframe {
+    display: block;
+    background: white;
+}
+
+.cadastral-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.cadastral-placeholder {
+    height: 450px;
+    background: linear-gradient(135deg, var(--light-sage) 0%, var(--sage-green) 100%);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px var(--shadow-dark);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.cadastral-link:hover .cadastral-placeholder {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-dark);
+}
+
+.cadastral-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.cadastral-placeholder h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--forest-green);
+    margin-bottom: 15px;
+}
+
+.cadastral-placeholder p {
+    color: var(--dark-oak);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.cadastral-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: var(--forest-green);
+    color: white;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.cadastral-link:hover .cadastral-button {
+    background: var(--moss-green);
 }
 
 .location-placeholder {
@@ -747,6 +852,49 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     margin-top: 40px;
+}
+
+.contact-content-single {
+    max-width: 600px;
+    margin: 40px auto 0;
+}
+
+.contact-content-centered {
+    max-width: 600px;
+    margin: 40px auto 0;
+    text-align: center;
+}
+
+.contact-content-centered .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-content-centered .contact-details {
+    width: 100%;
+    max-width: 400px;
+}
+
+.email-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 18px 45px;
+    background-color: var(--moss-green);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.email-button:hover {
+    background-color: var(--forest-green);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .contact-info h3 {
@@ -853,6 +1001,34 @@ body {
     box-shadow: 0 8px 20px var(--shadow-dark);
 }
 
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.form-status {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-status.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 /* ===================================
    Footer
    =================================== */
@@ -921,12 +1097,24 @@ body {
         font-size: 1.2rem;
     }
     
+    .price-amount {
+        font-size: 2.2rem;
+    }
+    
+    .hero-price {
+        padding: 15px 30px;
+    }
+    
     .section-title {
         font-size: 2.5rem;
     }
     
     .location-content,
     .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .location-maps {
         grid-template-columns: 1fr;
     }
     
