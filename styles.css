@@ -779,13 +779,7 @@ body {
     padding: 40px;
     text-align: center;
     box-shadow: 0 10px 30px var(--shadow-dark);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-}
-
-.cadastral-link:hover .cadastral-placeholder {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px var(--shadow-dark);
 }
 
 .cadastral-icon {
@@ -815,11 +809,6 @@ body {
     color: white;
     border-radius: 25px;
     font-weight: 600;
-    transition: background 0.3s ease;
-}
-
-.cadastral-link:hover .cadastral-button {
-    background: var(--moss-green);
 }
 
 .location-placeholder {
@@ -914,26 +903,27 @@ body {
 .phone-link {
     display: inline-flex;
     align-items: center;
-    gap: 15px;
-    padding: 20px 30px;
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
     background: var(--moss-green);
     color: white;
     text-decoration: none;
     border-radius: 50px;
-    font-size: 1.3rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+    letter-spacing: 1px;
 }
 
 .phone-link:hover {
     background: var(--forest-green);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .phone-icon {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
 }
 
 .phone-number {
@@ -1020,22 +1010,24 @@ body {
 }
 
 .submit-button {
-    width: 100%;
+    width: 80%;
+    max-width: 400px;
     padding: 18px;
-    background: linear-gradient(135deg, var(--moss-green), var(--forest-green));
+    background: var(--moss-green);
     color: white;
     border: none;
     border-radius: 50px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.3s ease;
     letter-spacing: 1px;
+    margin: 0 auto;
+    display: block;
 }
 
 .submit-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px var(--shadow-dark);
+    background: var(--forest-green);
 }
 
 .submit-button:disabled {
