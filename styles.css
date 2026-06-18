@@ -228,8 +228,7 @@ body {
    =================================== */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(45, 80, 22, 0.4), rgba(45, 80, 22, 0.6)),
-                url('Hazepad_4_76.jpg') center/cover no-repeat;
+    background: url('Hazepad_4_76.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -243,7 +242,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, transparent 0%, rgba(45, 80, 22, 0.3) 100%);
+    background: transparent;
+    /* Groene overlay verwijderd om het effect te testen */
 }
 
 .hero-content {
