@@ -719,9 +719,9 @@ body {
 }
 
 .location-maps {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .location-map-item {
