@@ -38,19 +38,8 @@ navLinks.forEach(link => {
 let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.padding = '10px 0';
-        navbar.style.boxShadow = '0 4px 30px rgba(45, 80, 22, 0.3)';
-    } else {
-        navbar.style.padding = '15px 0';
-        navbar.style.boxShadow = '0 2px 20px rgba(45, 80, 22, 0.1)';
-    }
-    
-    lastScroll = currentScroll;
-});
+// Navbar blijft nu altijd hetzelfde tijdens scrollen
+// Scroll effect verwijderd om de mooie transparante balk te behouden
 
 // ===================================
 // Smooth Scrolling for Navigation Links

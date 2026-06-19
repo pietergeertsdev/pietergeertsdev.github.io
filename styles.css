@@ -57,11 +57,27 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: var(--warm-white);
+    /* OPTIE 1: Volledig transparant met glasmorphism effect */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* OPTIE 2: Semi-transparant wit (uncomment om te gebruiken) */
+    /* background: rgba(250, 248, 243, 0.85); */
+    /* backdrop-filter: blur(5px); */
+    
+    /* OPTIE 3: Gradient overlay (uncomment om te gebruiken) */
+    /* background: linear-gradient(to bottom, rgba(45, 80, 22, 0.7), rgba(45, 80, 22, 0.3)); */
+    
+    /* OPTIE 4: Donkere transparante balk (uncomment om te gebruiken) */
+    /* background: rgba(45, 80, 22, 0.6); */
+    /* backdrop-filter: blur(8px); */
+    
     z-index: 1000;
-    padding: 8px 0;
+    padding: 15px 0;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 20px var(--shadow);
+    box-shadow: 0 2px 20px rgba(45, 80, 22, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-container {
@@ -84,11 +100,18 @@ body {
 }
 
 .nav-link {
-    color: var(--forest-green);
+    /* OPTIE 1: Witte tekst voor transparante navbar */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+    /* OPTIE 2: Groene tekst (origineel - uncomment om te gebruiken) */
+    /* color: var(--forest-green); */
+    
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 600;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 
 .export-config-button {
     position: fixed !important;
@@ -201,7 +224,13 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--moss-green);
+    /* Voor witte tekst */
+    color: var(--cream);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    transform: translateY(-2px);
+    
+    /* Voor groene tekst (uncomment als je groene tekst gebruikt) */
+    /* color: var(--moss-green); */
 }
 
 .nav-link:hover::after {
@@ -233,6 +262,9 @@ body {
     justify-content: center;
     position: relative;
     text-align: center;
+    /* Zorg dat de navbar over de hero foto ligt */
+    margin-top: 0;
+    padding-top: 80px; /* Ruimte voor de navbar */
 }
 
 .hero-overlay {
@@ -893,23 +925,29 @@ body {
     gap: 12px;
     width: 100%;
     padding: 15px 30px;
-    background: #6b8e5f;
-    color: white;
+    /* Glasmorphism effect - transparant met blur */
+    background: rgba(107, 142, 95, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--forest-green);
     text-decoration: none;
-    border: none;
     border-radius: 12px;
     font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(107, 142, 95, 0.3);
+    box-shadow: 0 4px 15px rgba(107, 142, 95, 0.2);
     font-family: var(--font-body);
 }
 
 .contact-button:hover {
-    background: #7a9d6e;
+    background: rgba(107, 142, 95, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(107, 142, 95, 0.4);
+    box-shadow: 0 6px 20px rgba(107, 142, 95, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .button-icon {
@@ -1189,9 +1227,12 @@ body {
     width: 80%;
     max-width: 400px;
     padding: 18px;
-    background: #6b8e5f;
-    color: white;
-    border: none;
+    /* Glasmorphism effect - transparant met blur */
+    background: rgba(107, 142, 95, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--forest-green);
     border-radius: 12px;
     font-size: 1.05rem;
     font-weight: 600;
@@ -1200,18 +1241,22 @@ body {
     letter-spacing: 0.5px;
     margin: 0 auto;
     display: block;
-    box-shadow: 0 4px 15px rgba(107, 142, 95, 0.3);
+    box-shadow: 0 4px 15px rgba(107, 142, 95, 0.2);
 }
 
 .submit-button:hover {
-    background: #7a9d6e;
+    background: rgba(107, 142, 95, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(107, 142, 95, 0.4);
+    box-shadow: 0 6px 20px rgba(107, 142, 95, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .submit-button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+    background: rgba(107, 142, 95, 0.1);
 }
 
 .form-status {
