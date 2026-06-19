@@ -699,50 +699,57 @@
                 <div class="title-underline"></div>
             </div>
             <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Bel ons</h3>
-                    <p>Voor directe vragen of een afspraak voor een bezichtiging:</p>
-                    <a href="tel:+32477328343" class="phone-link">
-                        <span class="phone-icon">📞</span>
-                        <span class="phone-number">+32477328343 (na 17u)</span>
+                <div class="contact-buttons">
+                    <a href="tel:+32477328343" class="contact-button phone-button">
+                        <span class="button-icon">📞</span>
+                        <span class="button-text">+32 477 32 83 43 <small>(na 17u)</small></span>
                     </a>
-                </div>
-                <div class="contact-form-wrapper">
-                    <h3>Of stuur een bericht</h3>
-                    <form id="contactForm" class="contact-form">
-                    <!-- Web3Forms Access Key -->
-                    <input type="hidden" name="access_key" value="f2d21efb-72d2-4398-b35a-68c557a306c3">
-                    
-                    <!-- Honeypot Spam Protection -->
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    
-                    <!-- Extra info voor in de email -->
-                    <input type="hidden" name="subject" value="Nieuwe interesse: Hazenpad 4, Merksplas">
-                    <input type="hidden" name="from_name" value="Hazenpad 4 Website">
-                    
-                    <div class="form-group">
-                        <label for="name">naam *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">telefoon</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">bericht *</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Verstuur Bericht</button>
-                    <p id="form-status" class="form-status"></p>
-                </form>
+                    <button id="openContactModal" class="contact-button message-button">
+                        <span class="button-icon">✉️</span>
+                        <span class="button-text">Neem contact op</span>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="contact-modal">
+        <div class="contact-modal-content">
+            <button class="contact-modal-close">&times;</button>
+            <h3>Neem contact op</h3>
+            <form id="contactForm" class="contact-form">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="f2d21efb-72d2-4398-b35a-68c557a306c3">
+                
+                <!-- Honeypot Spam Protection -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                
+                <!-- Extra info voor in de email -->
+                <input type="hidden" name="subject" value="Nieuwe interesse: Hazenpad 4, Merksplas">
+                <input type="hidden" name="from_name" value="Hazenpad 4 Website">
+                
+                <div class="form-group">
+                    <label for="name">naam *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">telefoon</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">bericht *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Verstuur Bericht</button>
+                <p id="form-status" class="form-status"></p>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

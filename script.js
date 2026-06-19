@@ -162,6 +162,45 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===================================
+// Contact Modal Handling
+// ===================================
+const contactModal = document.getElementById('contactModal');
+const openContactModalBtn = document.getElementById('openContactModal');
+const closeContactModalBtn = document.querySelector('.contact-modal-close');
+
+if (openContactModalBtn) {
+    openContactModalBtn.addEventListener('click', () => {
+        contactModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+if (closeContactModalBtn) {
+    closeContactModalBtn.addEventListener('click', () => {
+        contactModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+}
+
+// Close modal when clicking outside
+if (contactModal) {
+    contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && contactModal && contactModal.classList.contains('active')) {
+        contactModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// ===================================
 // Contact Form Handling with Web3Forms
 // ===================================
 const contactForm = document.getElementById('contactForm');
@@ -197,6 +236,14 @@ if (contactForm) {
                 formStatus.textContent = '✓ Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.';
                 formStatus.className = 'form-status success';
                 contactForm.reset();
+                
+                // Close modal after 2 seconds
+                setTimeout(() => {
+                    if (contactModal) {
+                        contactModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                }, 2000);
             } else {
                 // Error message
                 formStatus.textContent = '✗ Er is iets misgegaan. Probeer het opnieuw of stuur een email naar pietiebeerke@gmail.com';
